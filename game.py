@@ -23,6 +23,44 @@ def displayGenerator(row):
         else:
             yield piece.value
 
+def intGenerator(row):
+    for piece in row:
+        if piece == None:
+            yield 0
+        elif piece.value == "P":
+            yield 1
+        elif piece.value == "B":
+            yield 2
+        elif piece.value == "N":
+            yield 3
+        elif piece.value == "R":
+            yield 4
+        elif piece.value == "Q":
+            yield 5
+        elif piece.value == "K":
+            yield 6
+        elif piece.value == "p":
+            yield -1
+        elif piece.value == "b":
+            yield -2
+        elif piece.value == "n":
+            yield -3
+        elif piece.value == "r":
+            yield -4
+        elif piece.value == "q":
+            yield -5
+        elif piece.value == "k":
+            yield -6
+
+def floatGenerator(row):
+    for piece in intGenerator(row):
+        yield piece / 6
+
+# to be implemented
+def validMoves(rowIdx, colIdx):
+    pass
+    if board[rowIdx][colIdx] == BlackPiece.PAWN:
+        pass
 
 if __name__ == "__main__":
     board = [[None] * 8] * 8
